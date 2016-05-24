@@ -15,14 +15,13 @@
     return view('welcome');
 });*/
 
+Route::auth();
+Route::get('/home', 'HomeController@index');
+
 Route::get('/', function () {
-    return view('areaPublica.index');
+return view('areaPublica.index');
 });
 
 Route::get('/default/noticias/{id}', function () {
     return view('areaPublica.pages');
 });
-
-Route::auth();
-
-Route::get('/home', 'HomeController@index');
