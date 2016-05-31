@@ -23,7 +23,12 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('home');
+    {        
+        return view('restrict.index');
+    }
+    
+    public function trocarSenha()
+    {        
+        return view('restrict.users.firstAccess');
     }
 }
