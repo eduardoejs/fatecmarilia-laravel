@@ -91,8 +91,4 @@ class UsersController extends Controller
         
         return $input;
     }
-    
-    public function firstAccess(){
-        
-    }
 }

@@ -29,8 +29,8 @@ Route::group(['middleware' => ['web']], function(){
     
     Route::get('/restrict/main', ['as' => 'restrict.home', 'uses' => 'HomeController@index']);
     
-    Route::get('login/restrict', ['as' => 'loginRestrictArea', 'uses' => 'HomeController@index']);    
-    Route::get('reset/restrict', ['as' => 'trocarSenha', 'uses' => 'HomeController@trocarSenha']);
+    Route::get('/restrict/login', ['as' => 'loginRestrictArea', 'uses' => 'HomeController@index']);    
+    Route::get('/restrict/update/password', ['as' => 'trocarSenha', 'uses' => 'HomeController@trocarSenha']);
 });
 
 Route::group(['prefix' => 'restrict', 'as' => 'restrict.', 'middleware' => 'web'], function(){
