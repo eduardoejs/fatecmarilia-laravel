@@ -113,7 +113,7 @@
                         </ul>
                      </li>                     
                      <li><a>Vestibular</a></li>
-                     <li><a href="{{route('loginRestrictArea')}}" data-toggle="tooltip" data-placement="bottom" title="Área restrita"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></a></li>  
+                     <li><a href="{{route('restrict.home')}}" data-toggle="tooltip" data-placement="bottom" title="Área restrita"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></a></li>  
                   </ul>
                </div>
             </div>

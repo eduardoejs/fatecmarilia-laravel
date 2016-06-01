@@ -29,7 +29,7 @@ class HomeController extends Controller
     
     public function trocarSenha()
     {        
-        $user = Auth::user();
+        $user = \Auth::user();
         return view('restrict.users.firstAccess',  compact('user'));
     }
 }

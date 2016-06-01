@@ -28,9 +28,7 @@ Route::group(['middleware' => ['web']], function(){
     });    
     
     Route::get('/restrict/main', ['as' => 'restrict.home', 'uses' => 'HomeController@index']);
-    
-    Route::get('/restrict/login', ['as' => 'loginRestrictArea', 'uses' => 'HomeController@index']);    
-    Route::get('/restrict/update/password', ['as' => 'trocarSenha', 'uses' => 'HomeController@trocarSenha']);
+    Route::get('/restrict/update/password', ['as' => 'first.access', 'uses' => 'HomeController@trocarSenha']);
 });
 
 Route::group(['prefix' => 'restrict', 'as' => 'restrict.', 'middleware' => 'web'], function(){
@@ -42,7 +40,7 @@ Route::group(['prefix' => 'restrict', 'as' => 'restrict.', 'middleware' => 'web'
     Route::put('users/update/{id}', ['as' => 'users.update', 'uses' => 'Admin\UsersController@update']);
     Route::get('users/destroy/{id}', ['as' => 'users.destroy', 'uses' => 'Admin\UsersController@destroy']);
     Route::get('users/roles/{id}', ['as' => 'users.roles', 'uses' => 'Admin\UsersController@roles']);
-    Route::get('users/roles/{id}/store', ['as' => 'users.roles.store', 'uses' => 'Admin\UsersController@storeRole']);
+    Route::post('users/roles/{id}/store', ['as' => 'users.roles.store', 'uses' => 'Admin\UsersController@storeRole']);
     Route::get('users/roles/{id}/revoke/{role_id}', ['as' => 'users.roles.revoke', 'uses' => 'Admin\UsersController@revokeRole']);
     
     

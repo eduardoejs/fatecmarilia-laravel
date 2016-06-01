@@ -13,12 +13,15 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    
+                    <div>
+                        Por favor, informe o endereço de e-mail cadastrado no sistema. Um link será enviado a você onde poderá escolher uma nova senha.
+                    </div>
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
+                            <label class="col-md-4 control-label">E-Mail</label>
 
                             <div class="col-md-6">
                                 <input type="email" class="form-control" name="email" value="{{ old('email') }}">
@@ -34,7 +37,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-envelope"></i>Send Password Reset Link
+                                    <i class="fa fa-btn fa-envelope"></i>Enviar link
                                 </button>
                             </div>
                         </div>

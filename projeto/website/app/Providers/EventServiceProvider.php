@@ -12,10 +12,13 @@ class EventServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected $listen = [
+    protected $listen = [        
+        //Evento e seu respectivo Handler (Listener)  
+        'App\Events\UsuarioCriado' => [
+            'App\Listeners\EnviarSenhaParaUsuario',
+        ],
         
-        //Evento e seu respectivo Handler (Listener)               
-        'Illuminate\Auth\Events\Attempting' => [
+        /*'Illuminate\Auth\Events\Attempting' => [
             'App\Listeners\LogAuthenticationAttempt',
         ],
 
@@ -29,7 +32,7 @@ class EventServiceProvider extends ServiceProvider
 
         'Illuminate\Auth\Events\Lockout' => [
             'App\Listeners\LogLockout',
-        ],
+        ],*/
     ];
 
     /**

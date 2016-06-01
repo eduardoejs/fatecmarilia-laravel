@@ -7,7 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use \Auth;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -69,5 +69,18 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+    
+    public function login(Request $request)
+    {
+        $password = $request->input('password');
+        $username = $request->input('email');
+               
+        if(\Auth::attempt(['email' => $username, 'password' => $password, 'active' => 1])){            
+            return redirect()->route('restrict.home');
+        }
+        else{
+            return redirect()->to('/login')->withErrors(['email' => 'Essas credenciais não correspondem aos nossos registos'])->withInput(['email' => $username]);
+        }
     }
 }

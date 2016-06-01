@@ -14,7 +14,7 @@ class UsersController extends Controller
     public function index()
     {
         $this->authorize('user_list');
-        $users = User::all();
+        $users = User::orderBy('active', 'desc')->get();
         return view('restrict.users.index', compact('users'));
     }
     
@@ -25,13 +25,44 @@ class UsersController extends Controller
     }
     
     public function store(Request $request)
-    {
+    {        
         $this->authorize('user_add');
-        $input->plainPassword = $input['password'];
-        $input = $this->prepareFields($request);        
-        User::create($input);
-        return redirect()->route('restrict.users.index');
+        
+        $rules = array(
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+        );
+        
+        $valid = \Validator::make($request->all(), [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',            
+        ]);
+                
+        if($valid->fails()){
+            return redirect()->route('restrict.users.create')->withInput(['name' => $request->input('name'), 'email' => $request->input('email')])->withErrors($valid);
+        }else{     
+            $user = new User();
+            $user->name = $request->input('name');
+            $user->email = $request->input('email');
+            $user->plainPassword = $this->random_password(8);
+            $user->password = bcrypt($user->plainPassword);
+            $user->active = true;
+            $user->save();
+
+            $user = User::find($user->id);
+            \Event::fire(new \App\Events\UsuarioCriado($user));        
+
+            return redirect()->route('restrict.users.index');
+        }
     }
+    
+
+    private function random_password( $length = 8 ) {
+        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $password = substr( str_shuffle( $chars ), 0, $length );
+        return $password;
+    }
+
     
     public function edit($id)
     {

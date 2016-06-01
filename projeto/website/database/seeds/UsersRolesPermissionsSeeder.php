@@ -17,8 +17,8 @@ class UsersRolesPermissionsSeeder extends Seeder
          */
         $userAdmin = factory(\App\Models\ControleAcesso\User::class)->create([
             'name' => 'Eduardo Silva',
-            'email' => 'eduardo@admin.com',
-            'plainPassword' => 123456,
+            'email' => 'eduardo.ejs@hotmail.com',
+            'plainPassword' => null,
             'active' => true,
             'password' => bcrypt(123456)
         ]);
@@ -26,7 +26,7 @@ class UsersRolesPermissionsSeeder extends Seeder
         $userAdmin2 = factory(\App\Models\ControleAcesso\User::class)->create([
             'name' => 'Junior DJ',
             'email' => 'junior@admin.com',
-            'plainPassword' => 123456,
+            'plainPassword' => null,
             'active' => true,
             'password' => bcrypt(123456)
         ]);

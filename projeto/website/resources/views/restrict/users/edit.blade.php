@@ -9,7 +9,7 @@
 
         @include('restrict.users._form')
 
-        {!! Form::submit('Save user', ['class'=>'btn btn-primary']) !!}
+        {!! Form::submit('Gravar', ['class'=>'btn btn-primary']) !!}
 
         {!! Form::close() !!}
 

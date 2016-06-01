@@ -69,7 +69,7 @@
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-unlock-alt"></i> Controle de Acesso <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="#">Usuários do Sistema</a></li>
+                                        <li><a href="{{route('restrict.users.index')}}">Usuários do Sistema</a></li>
                                         <li><a href="#">Perfil de Acesso</a></li>
                                         <li><a href="#">Permissões</a></li>                      
                                     </ul>
@@ -274,6 +274,8 @@
             </div>
             <!-- /top navigation -->
 
+            
+            @yield('conteudo')
         <!-- page content -->
         <div class="right_col" role="main">
           <!-- top tiles -->
