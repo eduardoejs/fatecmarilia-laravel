@@ -22,14 +22,7 @@ class UsersRolesPermissionsSeeder extends Seeder
             'active' => true,
             'password' => bcrypt(123456)
         ]);
-        
-        $userAdmin2 = factory(\App\Models\ControleAcesso\User::class)->create([
-            'name' => 'Junior DJ',
-            'email' => 'junior@admin.com',
-            'plainPassword' => null,
-            'active' => true,
-            'password' => bcrypt(123456)
-        ]);
+                
         
         $userDocente = factory(\App\Models\ControleAcesso\User::class)->create([
             'name' => 'Docente 1',
@@ -39,14 +32,7 @@ class UsersRolesPermissionsSeeder extends Seeder
             'password' => bcrypt(123456)
         ]);
         
-        $userDocente2 = factory(\App\Models\ControleAcesso\User::class)->create([
-            'name' => 'Docente 2',
-            'email' => 'd2@docente.com',
-            'plainPassword' => 123456,
-            'active' => true,
-            'password' => bcrypt(123456)
-        ]);
-        
+                
         $userAluno = factory(\App\Models\ControleAcesso\User::class)->create([
             'name' => 'Aluno da Silva',
             'email' => 'a1@aluno.com',
@@ -59,7 +45,7 @@ class UsersRolesPermissionsSeeder extends Seeder
          * Perfil dos usuarios
          */
         $roleAdmin = factory(\App\Models\ControleAcesso\Role::class)->create([
-            'name' => 'Admin',
+            'name' => 'Administrador',
             'description' => 'Administrador do Sistema'
         ]);
         
@@ -76,12 +62,8 @@ class UsersRolesPermissionsSeeder extends Seeder
         /**
          * Vinculando Perfil aos Usuarios criados
          */
-        $userAdmin->addRole($roleAdmin);
-        $userAdmin2->addRole($roleAdmin);
-        
+        $userAdmin->addRole($roleAdmin);                
         $userDocente->addRole($roleDocente);
-        $userDocente2->addRole($roleDocente);
-
         $userAluno->addRole($roleAluno);
         
         /**
@@ -231,13 +213,5 @@ class UsersRolesPermissionsSeeder extends Seeder
         $roleAluno->addPermission($userListDocente);
         $roleAluno->addPermission($userListDisciplina);
         $roleAluno->addPermission($userListCurso);        
-
-        /*$roleManager->addPermission($userList);
-        $roleManager->addPermission($userEdit);
-        $roleManager->addPermission($userAdd);
-        $roleManager->addPermission($userViewRoles);
-
-        $roleSupervisor->addPermission($userList);
-        $roleSupervisor->addPermission($userViewRoles);*/
     }
 }

@@ -77,7 +77,7 @@ class AuthController extends Controller
         $username = $request->input('email');
                
         if(\Auth::attempt(['email' => $username, 'password' => $password, 'active' => 1])){            
-            return redirect()->route('restrict.home');
+            return redirect()->route('dashboard.home');
         }
         else{
             return redirect()->to('/login')->withErrors(['email' => 'Essas credenciais não correspondem aos nossos registos'])->withInput(['email' => $username]);

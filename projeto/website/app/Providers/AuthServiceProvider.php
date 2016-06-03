@@ -29,8 +29,8 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies($gate);
         
         if(!\App::runningInConsole()){
-            foreach($this->getPermissions() as $permission) {
-                $gate->define($permission->name, function($user) use($permission) {
+            foreach($this->getPermissions() as $permission) {                
+                $gate->define($permission->name, function($user) use($permission) {                    
                     return $user->hasRole($permission->roles) || $user->isAdmin();
                 });
             }
@@ -38,7 +38,7 @@ class AuthServiceProvider extends ServiceProvider
     }
     
     public function getPermissions()
-    {
+    {        
         return Permission::with('roles')->get();
     }
 }

@@ -88,7 +88,7 @@ class User extends Authenticatable
     }
 
     public function hasRole($role)
-    {
+    {   
         if (is_string($role)) {
             return $this->roles->contains('name', $role);
         }
@@ -101,7 +101,7 @@ class User extends Authenticatable
 //            }
 //            return false;
 //        }
-
+        
         return $role->intersect($this->roles)->count();
     }
 
@@ -111,6 +111,6 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return $this->hasRole('Admin');
+        return $this->hasRole('Administrador');
     }
 }

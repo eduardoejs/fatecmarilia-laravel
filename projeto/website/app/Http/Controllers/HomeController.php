@@ -24,12 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {        
-        return view('restrict.index');
-    }
-    
-    public function trocarSenha()
-    {        
-        $user = \Auth::user();
-        return view('restrict.users.firstAccess',  compact('user'));
+        return view('admin.index');
     }
 }

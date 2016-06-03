@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-   <head>
+    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Fatec Marília</title>
             
-      @section('css')
-        <link rel="stylesheet" href="/assets/template-public/css/components.css">
-        <link rel="stylesheet" href="/assets/template-public/css/responsee.css">
-      @show
+        @section('css')
+          <link rel="stylesheet" href="/assets/template-public/css/components.css">
+          <link rel="stylesheet" href="/assets/template-public/css/responsee.css">
+        @show
         
         <!-- TWITTER BOOTSTRAP -->
         <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
@@ -20,10 +20,9 @@
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
             <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-        <![endif]-->      
-      
-   </head>
-   <body class="size-1140">
+        <![endif]--> 
+    </head>
+    <body class="size-1140">
       <!-- TOP NAV WITH LOGO -->
       <header>                        
         <div class="line">
@@ -113,7 +112,7 @@
                         </ul>
                      </li>                     
                      <li><a>Vestibular</a></li>
-                     <li><a href="{{route('restrict.home')}}" data-toggle="tooltip" data-placement="bottom" title="Área restrita"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></a></li>  
+                     <li><a href="{{route('dashboard.home')}}" data-toggle="tooltip" data-placement="bottom" title="Área restrita"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></a></li>  
                   </ul>
                </div>
             </div>
