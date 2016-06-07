@@ -1,6 +1,6 @@
 @extends('layouts.areaRestrict')
 
-@section('page-title', 'Perfil de Acesso') 
+@section('page-title', 'Controle de Acesso') 
 @section('x-title', 'Gerenciar perfil de acesso') 
 
 @section('top-search')

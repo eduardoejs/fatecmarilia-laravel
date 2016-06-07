@@ -17,6 +17,10 @@ class PasswordController extends Controller
     | explore this trait and override any methods you wish to tweak.
     |
     */
+    
+    // assim que o usuario fizer o reset de sua senha ja sera redirecionado para 
+    // a pagina abaixo
+    protected $redirectPath = '/dashboard';
 
     use ResetsPasswords;
 

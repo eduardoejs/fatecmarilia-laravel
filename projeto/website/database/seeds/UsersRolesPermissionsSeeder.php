@@ -69,149 +69,313 @@ class UsersRolesPermissionsSeeder extends Seeder
         /**
          * Criando as permissoes do sistema
          */
-        $userList = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_list',
-            'description' => 'Permite listar todos os usuários'
+
+        /* Controle de Acesso - Usuário */
+        $permissionListUser = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'list_user',
+            'description' => 'Permite listar os usuários do sistema'
         ]);
 
-        $userAdd = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_add',
-            'description' => 'Permite adicionar usuários'
+        $permissionAddUser = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'add_user',
+            'description' => 'Permite adicionar usuários ao sistema'
         ]);
 
-        $userEdit = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_edit',
-            'description' => 'Permite editar usuários'
+        $permissionEditUser = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'edit_user',
+            'description' => 'Permite alterar usuários do sistema'
         ]);
 
-        $userDestroy = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_destroy',
-            'description' => 'Permite remover um usuário'
+        $permissionDestroyUser = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'destroy_user',
+            'description' => 'Permite remover/inativar um usuário do sistema'
         ]);
 
-        $userViewRoles = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_view_roles',
-            'description' => 'Permite visualizar o Perfil ("Role") dos usuários'
+        $permissionViewUserRoles = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'view_user_roles',
+            'description' => 'Permite visualizar o perfil dos usuários'
         ]);
 
-        $userAddRole = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_add_role',
-            'description' => 'Permite adicionar um novo Perfil para um usuário'
+        $permissionAddUserRole = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'add_user_role',
+            'description' => 'Permite adicionar um perfil ao usuário'
         ]);
 
-        $userRevokeRole = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_revoke_role',
-            'description' => 'Permite remover um Perfil ("Role") de um usuário'
+        $permissionRevokeUserRole = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'revoke_user_role',
+            'description' => 'Permite remover um perfil de um usuário'
         ]);
 
+        /* Permissões especiais */
         $managePermissions = factory(\App\Models\ControleAcesso\Permission::class)->create([
             'name'=>'permission_admin',
-            'description' => 'Permite todas as permissões de Administrador'
+            'description' => 'Permite gerenciar as PERMISSÕES de acesso do sistema'
         ]);
 
         $AdminRoles = factory(\App\Models\ControleAcesso\Permission::class)->create([
             'name'=>'role_admin',
-            'description' => 'Permite Perfil de Administrador'
+            'description' => 'Aplica o perfil de Adminsitrador a um usuário do sistema'
         ]);
         
-        //Permissoes para material de aula
-        $userListMaterial = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_list_material_aula',
+        /* Permissoes para material de aula */
+        $permissionListMaterial = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'list_material',
             'description' => 'Permite listar material de aula'
         ]);
 
-        $userAddMaterial = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_add_material_aula',
+        $permissionAddMaterial = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'add_material',
             'description' => 'Permite adicionar material de aula'
         ]);
 
-        $userEditMaterial = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_edit_material_aula',
+        $permissionEditMaterial = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'edit_material',
             'description' => 'Permite editar material de aula'
         ]);
 
-        $userDestroyMaterial = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_destroy_material_aula',
+        $permissionDestroyMaterial = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'destroy_material',
             'description' => 'Permite remover um material de aula'
         ]);
-        
-        //Permissoes para Docentes
-        $userListDocente = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_list_docente',
-            'description' => 'Permite listar todos os Docentes'
+
+        $permissionViewDisciplinaMaterial = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'view_disciplina_material',
+            'description' => 'Permite visualizar a qual disciplina pertence o material de aula'
         ]);
 
-        $userAddDocente = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_add_docente',
-            'description' => 'Permite adicionar um Docente'
-        ]);
-
-        $userEditDocente = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_edit_docente',
-            'description' => 'Permite editar Docente'
-        ]);
-
-        $userDestroyDocente = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_destroy_docente',
-            'description' => 'Permite remover um Docente'
+        $permissionDocenteMaterial = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'view_docente_material',
+            'description' => 'Permite visualizar qual docente enviou o material de aula'
         ]);
         
-        //Permissoes para Disciplinas
-        $userListDisciplina = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_list_disciplina',
+        /* Permissoes para Docentes */
+        $permissionListDocente = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'list_docente',
+            'description' => 'Permite listar todos os docentes'
+        ]);
+
+        $permissionAddDocente = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'add_docente',
+            'description' => 'Permite adicionar um docente'
+        ]);
+
+        $permissionEditDocente = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'edit_docente',
+            'description' => 'Permite alterar um docente'
+        ]);
+
+        $permissionDestroyDocente = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'destroy_docente',
+            'description' => 'Permite remover um docente'
+        ]);
+        
+        /* Permissoes para Disciplinas */
+        $permissionListDisciplina = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'list_disciplina',
             'description' => 'Permite listar todas as Disciplinas'
         ]);
 
-        $userAddDisciplina = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_add_disciplina',
+        $permissionAddDisciplina = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'add_disciplina',
             'description' => 'Permite adicionar um Disciplinas'
         ]);
 
-        $userEditDisciplina = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_edit_disciplina',
+        $permissionEditDisciplina = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'edit_disciplina',
             'description' => 'Permite editar Disciplinas'
         ]);
 
-        $userDestroyDisciplina = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_destroy_disciplina',
+        $permissionDestroyDisciplina = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'destroy_disciplina',
             'description' => 'Permite remover uma Disciplina'
         ]);
-        
-        $userListCurso = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_list_curso',
+
+        $permissionViewGradeDisciplina = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'view_grade_disciplina',
+            'description' => 'Permite visualizar a Grade de Disciplina'
+        ]);
+
+        $permissionViewCursoDisciplina = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'view_curso_disciplina',
+            'description' => 'Permite visualizar qual Curso pertence a Disciplina'
+        ]);
+
+        /* Permissoes para Curso */
+        $permissionListCurso = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'list_curso',
             'description' => 'Permite listar todas os Cursos'
         ]);
 
-        $userAddCurso = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_add_curso',
+        $permissionAddCurso = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'add_curso',
             'description' => 'Permite adicionar um Curso'
         ]);
 
-        $userEditCurso = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_edit_curso',
+        $permissionEditCurso = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'edit_curso',
             'description' => 'Permite editar um Curso'
         ]);
 
-        $userDestroyCurso = factory(\App\Models\ControleAcesso\Permission::class)->create([
-            'name'=>'user_destroy_curso',
+        $permissionDestroyCurso = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'destroy_curso',
             'description' => 'Permite remover um Curso'
+        ]);
+
+        $permissionViewClassificacaoCurso = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'view_curso_tipo',
+            'description' => 'Permite visualizar qual é a classificação do Curso'
+        ]);
+
+        /* Permissoes para o Tipo de Curso - Classificação: Graduação, Pós, etc */
+        $permissionListTipoCurso = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'list_tipo_curso',
+            'description' => 'Permite listar todas as classificações de Cursos'
+        ]);
+
+        $permissionAddTipoCurso = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'add_tipo_curso',
+            'description' => 'Permite adicionar uma classificação de Curso'
+        ]);
+
+        $permissionEditTipoCurso = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'edit_tipo_curso',
+            'description' => 'Permite editar uma classificação de Curso'
+        ]);
+
+        $permissionDestroyTipoCurso = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'destroy_tipo_curso',
+            'description' => 'Permite remover uma classificação de Curso'
+        ]);
+
+        /* Permissoes para Grade de Disciplinas */
+        $permissionListGrade = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'list_grade',
+            'description' => 'Permite listar todas as Grades de Disciplinas'
+        ]);
+
+        $permissionAddGrade = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'add_grade',
+            'description' => 'Permite adicionar uma Grade de Disciplinas'
+        ]);
+
+        $permissionEditGrade = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'edit_grade',
+            'description' => 'Permite editar uma Grade de Disciplinas'
+        ]);
+
+        $permissionDestroyGrade = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'destroy_grade',
+            'description' => 'Permite remover uma Grade de Disciplinas'
+        ]);
+
+        /* Permissoes para o vínculo entre Docentes e Disciplinas */
+        $permissionListDocenteDisciplina = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'list_docente_disciplina',
+            'description' => 'Permite listar o vínculo entre Docente e Disciplinas'
+        ]);
+
+        $permissionAddDocenteDisciplina = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'add_docente_disciplina',
+            'description' => 'Permite adicionar um vínculo entre Docente e Disciplinas'
+        ]);
+
+        $permissionEditDocenteDisciplina = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'edit_docente_disciplina',
+            'description' => 'Permite editar um vínculo entre Docente e Disciplinas'
+        ]);
+
+        $permissionDestroyDocenteDisciplina = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'destroy_docente_disciplina',
+            'description' => 'Permite remover um vínculo entre Docente e Disciplinas'
+        ]);
+
+        /* Permissoes para notas rapidas */        
+        $permissionListNotas = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'list_notas_rapidas',
+            'description' => 'Permite listar todas as notas rápidas'
+        ]);
+
+        $permissionAddNotas = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'add_notas_rapidas',
+            'description' => 'Permite adicionar uma nota rápida'
+        ]);
+
+        $permissionEditNotas = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'edit_notas_rapidas',
+            'description' => 'Permite alterar uma nota rápida'
+        ]);
+
+        $permissionDestroyNotas = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'destroy_notas_rapidas',
+            'description' => 'Permite remover uma nota rápida'
+        ]);
+
+        /* Permissoes para agendamento */
+        $permissionListAgendamento = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'list_agendamento',
+            'description' => 'Permite listar todas os agendamentos'
+        ]);
+
+        $permissionAddAgendamento = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'add_agendamento',
+            'description' => 'Permite adicionar um agendamento'
+        ]);
+
+        $permissionEditAgendamento = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'edit_agendamento',
+            'description' => 'Permite alterar um agendamento'
+        ]);
+
+        $permissionDestroyAgendamento = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'destroy_agendamento',
+            'description' => 'Permite remover um agendamento'
+        ]);
+
+        $permissionViewAgenda = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'view_agenda',
+            'description' => 'Permite visualizar a qual agenda pertence o agendamento'
+        ]);
+
+        /* Permissoes para envio de arquivos - Download */        
+        $permissionListDownload = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'list_download',
+            'description' => 'Permite listar arquivos para Download'
+        ]);
+
+        $permissionAddDownload = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'add_download',
+            'description' => 'Permite enviar arquivo para Download'
+        ]);
+
+        $permissionDestroyDownload = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'destroy_download',
+            'description' => 'Permite apagar arquivo para Download'
+        ]);
+
+        $permissionViewCategoriaDownload = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'view_categoria_download',
+            'description' => 'Permite visualizar a categoria do arquivo para Download'
         ]);
         
         /**
          * Adicionar as permissoes aos perfis de usuarios
          */       
-        $roleDocente->addPermission($userAddMaterial);
-        $roleDocente->addPermission($userEditMaterial);
-        $roleDocente->addPermission($userDestroyMaterial);
-        $roleDocente->addPermission($userListMaterial);
-        $roleDocente->addPermission($userListDisciplina);
-        $roleDocente->addPermission($userListDocente);
-        $roleDocente->addPermission($userEditDocente);
-        $roleDocente->addPermission($userListCurso);
+        $roleDocente->addPermission($permissionAddMaterial);
+        $roleDocente->addPermission($permissionEditMaterial);
+        $roleDocente->addPermission($permissionDestroyMaterial);
+        $roleDocente->addPermission($permissionListMaterial);
+        $roleDocente->addPermission($permissionListDisciplina);
+        $roleDocente->addPermission($permissionListDocente);
+        $roleDocente->addPermission($permissionEditDocente);
+        $roleDocente->addPermission($permissionListCurso);
+        $roleDocente->addPermission($permissionListAgendamento);
+        $roleDocente->addPermission($permissionAddAgendamento);
+        $roleDocente->addPermission($permissionEditAgendamento);
+        $roleDocente->addPermission($permissionDestroyAgendamento);
         
-        $roleAluno->addPermission($userListMaterial);
-        $roleAluno->addPermission($userListDocente);
-        $roleAluno->addPermission($userListDisciplina);
-        $roleAluno->addPermission($userListCurso);        
+        $roleAluno->addPermission($permissionListMaterial);
+        $roleAluno->addPermission($permissionListDocente);
+        $roleAluno->addPermission($permissionListDisciplina);
+        $roleAluno->addPermission($permissionListCurso);        
     }
 }

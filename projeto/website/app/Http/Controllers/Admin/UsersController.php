@@ -14,20 +14,20 @@ class UsersController extends Controller
 {
     public function index()
     {
-        $this->authorize('user_list');
+        $this->authorize('list_user');
         $users = User::orderBy('active', 'desc')->get();
         return view('admin.users.index', compact('users'));
     }
     
     public function create() 
     {
-        $this->authorize('user_add');
+        $this->authorize('add_user');
         return view('admin.users.create');
     }
     
     public function store(Request $request)
     {        
-        $this->authorize('user_add');
+        $this->authorize('add_user');
         
         $rules = array(
             'name' => 'required',
@@ -66,7 +66,7 @@ class UsersController extends Controller
     
     public function edit($id)
     {
-        $this->authorize('user_edit');
+        $this->authorize('edit_user');
         $user = User::find($id);
         $readonly = true;
         return view('admin.users.edit', compact('user', 'readonly'));
@@ -74,7 +74,7 @@ class UsersController extends Controller
     
     public function update(Request $request, $id)
     {
-        $this->authorize('user_edit');
+        $this->authorize('edit_user');
         $input = $this->prepareFields($request);
         User::find($id)->update($input);
         return redirect()->route('admin.users.index');
@@ -82,7 +82,7 @@ class UsersController extends Controller
     
     public function destroy($id)
     {
-        $this->authorize('user_destroy');
+        $this->authorize('destroy_user');
         //User::find($id)->delete();
         $user = User::find($id);
         
@@ -96,7 +96,7 @@ class UsersController extends Controller
     
     public function roles($id)
     {
-        $this->authorize('user_view_roles');
+        $this->authorize('view_user_roles');
         $user = User::find($id);
         $roles = Role::all();
         return view('admin.users.roles', compact('user', 'roles'));
@@ -104,7 +104,7 @@ class UsersController extends Controller
     
     public function storeRole(Request $request, $id)
     {
-        $this->authorize('user_add_role');
+        $this->authorize('add_user_role');
         $user = User::find($id);
         $role = Role::findOrFail($request->all()['role_id']);
         $user->addRole($role);
@@ -113,7 +113,7 @@ class UsersController extends Controller
     
     public function revokeRole($id, $role_id)
     {
-        $this->authorize('user_revoke_role');
+        $this->authorize('revoke_user_role');
         $user = User::find($id);
         $role = Role::findOrFail($role_id);
         $user->revokeRole($role);
@@ -133,7 +133,7 @@ class UsersController extends Controller
     
     public function search(Request $request)
     {
-        $this->authorize('user_list');
+        $this->authorize('list_user');
         
         if(!empty($request->input('search'))){
             $users = User::orWhere('name','like', '%'.$request->input('search').'%')->orderBy('active', 'desc')->get();

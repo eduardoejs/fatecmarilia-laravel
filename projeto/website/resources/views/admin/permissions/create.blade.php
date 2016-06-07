@@ -1,21 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.areaRestrict')
 
-@section('content')
+@section('page-title', 'Controle de Acesso') 
+@section('x-title', 'Cadastrar nova permissão') 
 
-    <div class="container">
-        <h2>Create new Permission</h2>
-
-        {!! Form::open(['route'=>'admin.permissions.store']) !!}
-
+@section('conteudo')
+    {!! Form::open(['route'=>'admin.permissions.store']) !!}                            
         @include('admin.permissions._form')
-
-        {!! Form::submit('Add permission', ['class'=>'btn btn-primary']) !!}
-
-        {!! Form::close() !!}
-
-
-
-
-    </div>
-
+        {!! Form::submit('Adicionar permissão', ['class'=>'btn btn-primary']) !!}
+        <a href="{{route('admin.permissions.index')}}" class='btn btn-default'>Voltar</a>
+    {!! Form::close() !!} 
 @endsection

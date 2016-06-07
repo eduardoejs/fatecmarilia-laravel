@@ -57,7 +57,7 @@
                                 <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                                   <ul class="nav child_menu">
                                     @can('user_list')
-                                      <li><a href="#">Página inicial</a></li>
+                                      <li><a href="{{route('dashboard.home')}}">Página inicial</a></li>
                                     @endcan                      
                                   </ul>
                                 </li>                  
@@ -74,15 +74,22 @@
                                             <li><a href="{{route('admin.users.index')}}">Usuários do Sistema</a></li>
                                             <li><a href="{{route('admin.roles.index')}}">Perfis de Acesso</a></li>
                                             @endcan
-                                            <li><a href="#">Permissões</a></li>                      
+                                            @can('permission_admin')
+                                            <li><a href="{{route('admin.permissions.index')}}">Permissões</a></li>
+                                            @endcan
                                         
                                     </ul>
                                 </li>
                                 @endif
-                                <li><a><i class="fa fa-calendar"></i> Agendamentos <span class="fa fa-chevron-down"></span></a>
+                                
+                                <li><a><i class="fa fa-calendar"></i> Menu de Agendamento<span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
+                                    @can('role_admin')
                                       <li><a href="#">Agendas</a></li>
-                                      <li><a href="#">Agendamentos</a></li>                      
+                                    @endcan
+                                    @can('list_agendamento')
+                                      <li><a href="#">Agendamentos</a></li>
+                                    @endcan
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-building-o"></i> Estágios <span class="fa fa-chevron-down"></span></a>
@@ -91,7 +98,7 @@
                                       <li><a href="#">Vagas de estágios</a></li>
                                   </ul>
                                 </li>
-                                <li><a><i class="fa fa-building-o"></i> Estágio Supervisionado <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-building-o"></i> Estágio Supervisionado<span class="fa fa-chevron-down"></span></a>
                                   <ul class="nav child_menu">
                                       <li><a href="#">Documentos obrigatórios</a></li>
                                   </ul>

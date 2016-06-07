@@ -44,7 +44,17 @@ class PermissionsController extends Controller
 
     public function destroy($id)
     {
+        $permission = Permission::find($id);
         Permission::find($id)->delete();
+        return redirect()->route('admin.permissions.index')->with(['status' => 'Permissão: '.$permission->name.' foi excluída']);
+    }
+    
+    public function search(Request $request)
+    {   
+        if(!empty($request->input('search'))){
+            $permissions = Permission::where('name', 'like', '%'.$request->input('search').'%')->orWhere('description','like', '%'.$request->input('search').'%')->get();
+            return view('admin.permissions.index', compact('permissions'));
+        }        
         return redirect()->route('admin.permissions.index');
     }
 }
