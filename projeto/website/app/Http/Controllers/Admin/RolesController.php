@@ -61,7 +61,7 @@ class RolesController extends Controller
     public function storePermission(Request $request, $id)
     {
         $role = Role::find($id);
-
+        
         $permission = Permission::findOrFail($request->all()['permission_id']);
         $role->addPermission($permission);
 

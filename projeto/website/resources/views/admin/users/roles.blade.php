@@ -19,12 +19,11 @@
     @endcan
     <br>
 
-    <h3>Listando perfis:</h3>
     <table class="table table-hover">
         <thead>
         <th>Perfil</th>
         <th>Descrição</th>
-        @can('user_revoke_role')
+        @can('revoke_user_role')
             <th>Ações</th>
         @endcan
         </thead>
@@ -33,7 +32,7 @@
             <tr>
                 <td>{{$role->name}}</td>
                 <td>{{$role->description}}</td>
-                @can('user_revoke_role')
+                @can('revoke_user_role')
                     <td>
                         <a href="{{route('admin.users.roles.revoke',['id'=>$user->id, 'role_id'=>$role->id])}}"
                            class="btn btn-danger btn-xs">

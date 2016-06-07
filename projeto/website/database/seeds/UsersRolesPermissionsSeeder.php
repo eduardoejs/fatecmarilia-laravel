@@ -31,6 +31,14 @@ class UsersRolesPermissionsSeeder extends Seeder
             'active' => true,
             'password' => bcrypt(123456)
         ]);
+
+        $userDocente2 = factory(\App\Models\ControleAcesso\User::class)->create([
+            'name' => 'Docente 2',
+            'email' => 'd2@docente.com',
+            'plainPassword' => 123456,
+            'active' => false,
+            'password' => bcrypt(123456)
+        ]);
         
                 
         $userAluno = factory(\App\Models\ControleAcesso\User::class)->create([
@@ -64,6 +72,7 @@ class UsersRolesPermissionsSeeder extends Seeder
          */
         $userAdmin->addRole($roleAdmin);                
         $userDocente->addRole($roleDocente);
+        $userDocente2->addRole($roleDocente);
         $userAluno->addRole($roleAluno);
         
         /**

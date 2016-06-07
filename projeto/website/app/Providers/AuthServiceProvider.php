@@ -30,7 +30,7 @@ class AuthServiceProvider extends ServiceProvider
         
         if(!\App::runningInConsole()){
             foreach($this->getPermissions() as $permission) {                
-                $gate->define($permission->name, function($user) use($permission) {                    
+                $gate->define($permission->name, function($user) use($permission) {
                     return $user->hasRole($permission->roles) || $user->isAdmin();
                 });
             }

@@ -146,7 +146,7 @@
                  CEP 17506-000<br>
                  Marília - SP<br>
                  <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> (14) 3454-7540<br>
-                 <i class="icon-at"></i> fatecmarilia@gmail.com
+                 fatecmarilia@gmail.com
                </address>               
             </div>
             <div class="s-12 l-6">

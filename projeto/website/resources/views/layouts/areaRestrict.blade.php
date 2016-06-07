@@ -56,9 +56,7 @@
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                                   <ul class="nav child_menu">
-                                    @can('user_list')
-                                      <li><a href="{{route('dashboard.home')}}">Página inicial</a></li>
-                                    @endcan                      
+                                    <li><a href="{{route('dashboard.home')}}">Página inicial</a></li>                                    
                                   </ul>
                                 </li>                  
                             </ul>

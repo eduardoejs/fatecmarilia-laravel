@@ -22,7 +22,7 @@
 
 @section('conteudo')
 
-    @can('user_add')
+    @can('add_user')
         <a href="{{route('admin.permissions.create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nova permissão</a>
     @endcan
     <br><br>
