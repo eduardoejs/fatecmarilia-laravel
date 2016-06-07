@@ -135,9 +135,10 @@ class UsersController extends Controller
     {
         $this->authorize('list_user');
         
+        $search = $request->input('search');
         if(!empty($request->input('search'))){
             $users = User::orWhere('name','like', '%'.$request->input('search').'%')->orderBy('active', 'desc')->get();
-            return view('admin.users.index', compact('users'));
+            return view('admin.users.index', compact('users', 'search'));
         }
         
         return redirect()->route('admin.users.index');

@@ -50,10 +50,11 @@ class PermissionsController extends Controller
     }
     
     public function search(Request $request)
-    {   
+    { 
+        $search = $request->input('search');  
         if(!empty($request->input('search'))){
             $permissions = Permission::where('name', 'like', '%'.$request->input('search').'%')->orWhere('description','like', '%'.$request->input('search').'%')->get();
-            return view('admin.permissions.index', compact('permissions'));
+            return view('admin.permissions.index', compact('permissions', 'search'));
         }        
         return redirect()->route('admin.permissions.index');
     }

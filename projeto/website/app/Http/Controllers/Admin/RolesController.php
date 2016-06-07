@@ -79,9 +79,10 @@ class RolesController extends Controller
     
     public function search(Request $request)
     {   
+        $search = $request->input('search');
         if(!empty($request->input('search'))){
             $roles = Role::orWhere('description','like', '%'.$request->input('search').'%')->get();
-            return view('admin.roles.index', compact('roles'));
+            return view('admin.roles.index', compact('roles', 'search'));
         }
         
         return redirect()->route('admin.roles.index');
