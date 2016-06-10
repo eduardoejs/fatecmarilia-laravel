@@ -34,14 +34,14 @@
     <table class="table table-hover">
         <thead>
         <th>Nome</th>
-        <th>Descrição</th>
+        <th>Descrição</th>        
         <th>Ações</th>
         </thead>
         <tbody>
         @forelse($permissions as $permission)        
             <tr>
                 <td>{{$permission->name}}</td>
-                <td>{{$permission->description}}</td>
+                <td>{{$permission->description}}</td>                
                 <td>
                     <a href="{{route('admin.permissions.edit',['id'=>$permission->id])}}" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar</a>                
                     <a href="{{route('admin.permissions.destroy',['id'=>$permission->id])}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Remover</a>

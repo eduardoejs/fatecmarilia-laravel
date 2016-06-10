@@ -9,6 +9,7 @@
 
     <title>Fatec Marília</title>
 
+@section('css')
     <!-- Bootstrap -->
     <link href="/assets/template-restrict/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -19,7 +20,7 @@
     <link href="/assets/template-restrict/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- jVectorMap -->
     <link href="/assets/template-restrict/css/maps/jquery-jvectormap-2.0.3.css" rel="stylesheet"/>
-
+@show
     <!-- Custom Theme Style -->
     <link href="/assets/template-restrict/build/css/custom.min.css" rel="stylesheet">
   </head>
@@ -82,11 +83,11 @@
                                 
                                 <li><a><i class="fa fa-calendar"></i> Menu de Agendamento<span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                    @can('role_admin')
-                                      <li><a href="#">Agendas</a></li>
+                                    @can('list_agenda')
+                                      <li><a href="{{route('admin.agendas.index')}}">Agendas</a></li>
                                     @endcan
                                     @can('list_agendamento')
-                                      <li><a href="#">Agendamentos</a></li>
+                                      <li><a href="{{route('admin.agendamentos.index')}}">Agendamentos</a></li>
                                     @endcan
                                     </ul>
                                 </li>
@@ -344,6 +345,7 @@
       </div>
     </div>
 
+    @section('scripts')
     <!-- jQuery -->
     <script src="/assets/template-restrict/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -647,5 +649,7 @@
       gauge.setTextField(document.getElementById("gauge-text"));
     </script>
     <!-- /gauge.js -->
+    @show
+
   </body>
 </html>

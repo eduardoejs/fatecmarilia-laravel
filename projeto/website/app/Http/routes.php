@@ -18,9 +18,6 @@
 Route::auth();
 Route::get('/home', 'HomeController@index');
 */
-
-
-
 Route::group(['middleware' => ['web']], function(){   
     Route::auth();
     Route::get('/', function(){
@@ -61,5 +58,21 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'web'], fun
     Route::get('permissions/edit/{id}', ['as' => 'permissions.edit', 'uses' => 'Admin\PermissionsController@edit']);
     Route::put('permissions/update/{id}', ['as' => 'permissions.update', 'uses' => 'Admin\PermissionsController@update']);
     Route::get('permissions/destroy/{id}', ['as' => 'permissions.destroy', 'uses' => 'Admin\PermissionsController@destroy']);
+
+    Route::get('agendas', ['as' => 'agendas.index', 'uses' => 'Agendamento\AgendasController@index']);
+    Route::get('agendas/new', ['as' => 'agendas.create', 'uses' => 'Agendamento\AgendasController@create']);
+    Route::post('agendas/search', ['as' => 'agendas.search', 'uses' => 'Agendamento\AgendasController@search']);
+    Route::post('agendas/store', ['as' => 'agendas.store', 'uses' => 'Agendamento\AgendasController@store']);
+    Route::get('agendas/edit/{id}', ['as' => 'agendas.edit', 'uses' => 'Agendamento\AgendasController@edit']);
+    Route::put('agendas/update/{id}', ['as' => 'agendas.update', 'uses' => 'Agendamento\AgendasController@update']);
+    Route::get('agendas/destroy/{id}', ['as' => 'agendas.destroy', 'uses' => 'Agendamento\AgendasController@destroy']);
+
+    Route::get('agendamentos', ['as' => 'agendamentos.index', 'uses' => 'Agendamento\AgendamentosController@index']);
+    Route::get('agendamentos/new', ['as' => 'agendamentos.create', 'uses' => 'Agendamento\AgendamentosController@create']);
+    Route::post('agendamentos/search', ['as' => 'agendamentos.search', 'uses' => 'Agendamento\AgendamentosController@search']);
+    Route::post('agendamentos/store', ['as' => 'agendamentos.store', 'uses' => 'Agendamento\AgendamentosController@store']);    
+    Route::get('agendamentos/destroy/{id}', ['as' => 'agendamentos.destroy', 'uses' => 'Agendamento\AgendamentosController@destroy']);
+    Route::get('agendamentos/check/{data}/{turno}/{agenda}', ['as' => 'agendamentos.check', 'uses' => 'Agendamento\AgendamentosController@getAgendamentos']);
+
 });
 

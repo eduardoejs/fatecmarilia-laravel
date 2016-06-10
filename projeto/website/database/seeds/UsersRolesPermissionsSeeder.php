@@ -340,9 +340,35 @@ class UsersRolesPermissionsSeeder extends Seeder
             'description' => 'Permite remover um agendamento'
         ]);
 
+        $permissionComentarAgendamento = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'add_comment_agendamento',
+            'description' => 'Permite inserir um comentário no agendamento'
+        ]);
+
         $permissionViewAgenda = factory(\App\Models\ControleAcesso\Permission::class)->create([
             'name'=>'view_agenda',
             'description' => 'Permite visualizar a qual agenda pertence o agendamento'
+        ]);
+
+        /* Permissoes para agenda */
+        $permissionListAgenda = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'list_agenda',
+            'description' => 'Permite listar todas as agendas'
+        ]);
+
+        $permissionAddAgenda = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'add_agenda',
+            'description' => 'Permite adicionar uma agenda'
+        ]);
+
+        $permissionEditAgenda = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'edit_agenda',
+            'description' => 'Permite alterar uma agenda'
+        ]);
+
+        $permissionDestroyAgenda = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'destroy_agenda',
+            'description' => 'Permite remover uma agenda'
         ]);
 
         /* Permissoes para envio de arquivos - Download */        

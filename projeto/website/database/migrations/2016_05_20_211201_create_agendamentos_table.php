@@ -15,7 +15,8 @@ class CreateAgendamentosTable extends Migration
         Schema::create('agendamentos', function (Blueprint $table) {
             $table->increments('id');
             $table->date('data');
-            $table->integer('termo');
+            $table->integer('termo')->nullable();
+            $table->string('turno',1)->nullable();
             $table->tinyInteger('aula1')->nullable();
             $table->tinyInteger('aula2')->nullable();
             $table->tinyInteger('aula3')->nullable();

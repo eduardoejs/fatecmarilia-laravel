@@ -4,8 +4,11 @@ namespace App\Providers;
 
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use App\Policies\AgendamentoPolicy;
 
 use App\Models\ControleAcesso\Permission;
+use App\Models\Agenda\Agendamento;
+use App\Models\ControleAcesso\User;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -14,8 +17,8 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected $policies = [
-        'App\Model' => 'App\Policies\ModelPolicy',
+    protected $policies = [        
+        Agendamento::class => AgendamentoPolicy::class,
     ];
 
     /**
@@ -25,7 +28,7 @@ class AuthServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot(GateContract $gate)
-    {
+    {        
         $this->registerPolicies($gate);
         
         if(!\App::runningInConsole()){
