@@ -26,22 +26,8 @@
           <div class="col-middle">
             <div class="text-center text-center">
               <h1 class="error-number">403</h1>
-              <h2>Access denied</h2>
-              <p>Full authentication is required to access this resource. <a href="#">Report this?</a>
-              </p>
-              <div class="mid_center">
-                <h3>Search</h3>
-                <form>
-                  <div class="col-xs-12 form-group pull-right top_search">
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Search for...">
-                      <span class="input-group-btn">
-                              <button class="btn btn-default" type="button">Go!</button>
-                          </span>
-                    </div>
-                  </div>
-                </form>
-              </div>
+              <h1>Acesso não autorizado</h1>
+              <p>Para acessar esse recurso é necessário que você esteja logado no sistema ou tenha permissão de acesso.</p>              
             </div>
           </div>
         </div>

@@ -119,7 +119,7 @@ class AgendamentosController extends Controller
     		return redirect()->back()->withInput()->with('status', 'Para realizar o agendamento você deve selecionar ao menos uma aula que esteja disponível');
     	else{
     		$agendamento->save();    		
-    		return redirect()->route('admin.agendamentos.index');
+    		return redirect()->route('admin.agendamentos.index')->with('status', 'Agendamento realizado com sucesso!');
     	}
     }
 
