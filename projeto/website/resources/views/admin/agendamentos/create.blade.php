@@ -3,8 +3,8 @@
 @section('css')
 @parent
 <!-- Bootstrap -->
-   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css" />
-   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+   <!--<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css" />-->
+   <link rel="stylesheet" type="text/css" href="/assets/agendamento/daterangepicker.css" />
 
 @endsection
 
@@ -26,9 +26,9 @@
 
 @section('scripts')
 @parent
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<script type="text/javascript" src="/assets/agendamento/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/agendamento//moment.min.js"></script>
+<script type="text/javascript" src="/assets/agendamento/daterangepicker.js"></script>
 <script type="text/javascript" src="/assets/blockuiplugin/jquery.blockUI.js"></script>
 
     <!-- bootstrap-daterangepicker -->
@@ -59,18 +59,18 @@
 		            "Sab"
 		        ],
 		        "monthNames": [
-		            "Janeiro",
-		            "Fevereiro",
-		            "Março",
-		            "Abril",
-		            "Maio",
-		            "Junho",
-		            "Julho",
-		            "Agosto",
-		            "Setembro",
-		            "Outubro",
-		            "Novembro",
-		            "Dezembro"
+		            "Jan",
+		            "Fev",
+		            "Mar",
+		            "Abr",
+		            "Mai",
+		            "Jun",
+		            "Jul",
+		            "Ago",
+		            "Set",
+		            "Out",
+		            "Nov",
+		            "Dez"
 		        ],
 		        "firstDay": 1
 		    },    
@@ -99,14 +99,11 @@
 
 		    $('#datepicker').change(function() {
     			
-    			
     			$.blockUI({ message: '<h1">Verificando agendamento...</h1>' });  
 		    	
 		    	var data = $('#datepicker');		    	
 		    	var agenda = $('#agenda');
 		    	var periodo = $('#periodo');
-
-		    	 
 		    			    	
 		    	$.get("check/" + data.val().replace(/\//g, '-') + "/" + periodo.val() + "/" + agenda.val(), function(agendamentos){
 		    		

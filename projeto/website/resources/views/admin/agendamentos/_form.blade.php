@@ -31,10 +31,11 @@
 <div class="form-group">
     {!! Form::label('aulas', 'Aulas disponíveis:') !!}
     <div id="chkList"></div>        
-    <input type="checkbox" name="aula1" value="1" id="aula1"> Aula 1  
-    <input type="checkbox" name="aula2" value="1" id="aula2"> Aula 2  
-    <input type="checkbox" name="aula3" value="1" id="aula3"> Aula 3  
-    <input type="checkbox" name="aula4" value="1" id="aula4"> Aula 4  
-    <input type="checkbox" name="aula5" value="1" id="aula5"> Aula 5            
+    <input type="checkbox" name="aula1" value="1" id="aula1"> Aula 1
+    <input type="checkbox" name="aula2" value="1" id="aula2"> Aula 2
+    <input type="checkbox" name="aula3" value="1" id="aula3"> Aula 3
+    <input type="checkbox" name="aula4" value="1" id="aula4"> Aula 4
+    <input type="checkbox" name="aula5" value="1" id="aula5"> Aula 5
+    </div>
 </div>
 

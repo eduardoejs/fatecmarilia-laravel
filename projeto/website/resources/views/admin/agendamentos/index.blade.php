@@ -16,7 +16,7 @@
     @endif    
     <div class="table-responsive">
     <table class="table table-hover table-condensed">
-        <thead>
+        <thead>        
         <th>Usuário</th>
         <th>Agenda</th>
         <th>Data</th>
@@ -28,7 +28,7 @@
         </thead>
         <tbody>
         @forelse($agendamentos as $agendamento)        
-            <tr>
+            <tr>            
                 <td>{{$agendamento->user->name}}</td>
                 <td>{{$agendamento->agenda->name}}</td>
                 <td>{{ date('d/m/Y', strtotime($agendamento->data))}}</td>
@@ -55,7 +55,7 @@
                 <td>
                 {{-- 'manage vem da policy de agendamento' --}}
                 @can('manage', $agendamento)
-                    <a href="{{route('admin.agendamentos.destroy',['id'=>$agendamento->id])}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Remover</a>
+                    <a href="{{route('admin.agendamentos.destroy',['id'=>$agendamento->id])}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> </a>
                 @endcan
                 </td>
             </tr>
