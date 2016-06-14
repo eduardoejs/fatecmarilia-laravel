@@ -127,8 +127,10 @@ class AgendamentosController extends Controller
     {
         $agendamento = new Agendamento();
         $agendamento = $agendamento->find($id);
+        
         $this->authorize('manage', $agendamento);   
-    	Agendamento::find($id)->delete();
+    	
+        $agendamento->delete();        
         return redirect()->route('admin.agendamentos.index');
     }
 
