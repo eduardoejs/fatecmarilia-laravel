@@ -9,7 +9,7 @@
 
 <div class="form-group">
     {!! Form::label('termo', 'Termo:') !!}
-    <select name="termo" class="form-control">
+    <select name="termo" class="form-control" id="termo">
         @for($i = 1; $i <=6; $i++)
             <option value="{{$i}}" @if($i == old('termo')) selected="true" @endif >{{$i}}º Termo</option>
         @endfor

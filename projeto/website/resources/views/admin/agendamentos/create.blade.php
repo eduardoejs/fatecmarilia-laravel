@@ -29,7 +29,7 @@
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-
+<script type="text/javascript" src="/assets/blockuiplugin/jquery.blockUI.js"></script>
 
     <!-- bootstrap-daterangepicker -->
     <script>
@@ -89,13 +89,24 @@
 				$('#datepicker').change();
 			}
 
-			//testar qdo o campo data estiver vazio, se sim setar data atual para a busca
+			$('#agenda').change(function() {
+				$('#datepicker').change();
+			});
+
+			$('#periodo').change(function() {
+				$('#datepicker').change();
+			});
 
 		    $('#datepicker').change(function() {
+    			
+    			
+    			$.blockUI({ message: '<h1">Verificando agendamento...</h1>' });  
 		    	
 		    	var data = $('#datepicker');		    	
 		    	var agenda = $('#agenda');
 		    	var periodo = $('#periodo');
+
+		    	 
 		    			    	
 		    	$.get("check/" + data.val().replace(/\//g, '-') + "/" + periodo.val() + "/" + agenda.val(), function(agendamentos){
 		    		
@@ -157,6 +168,8 @@
 		    			}   			
 		    		});
 		    	});
+		    	
+		    	$(document).ajaxStop($.unblockUI); 
 			});
 		});
 	</script>
