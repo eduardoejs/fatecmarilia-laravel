@@ -27,7 +27,7 @@ Route::group(['middleware' => ['web']], function(){
     Route::get('/dashboard', ['as' => 'dashboard.home', 'uses' => 'HomeController@index']);    
 });
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'web'], function(){    
+Route::group(['prefix' => 'dashboard', 'as' => 'admin.', 'middleware' => 'web'], function(){    
     
     Route::get('users', ['as' => 'users.index', 'uses' => 'Admin\UsersController@index']);
     Route::get('users/new', ['as' => 'users.create', 'uses' => 'Admin\UsersController@create']);
@@ -72,7 +72,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'web'], fun
     Route::post('agendamentos/search', ['as' => 'agendamentos.search', 'uses' => 'Agendamento\AgendamentosController@search']);
     Route::post('agendamentos/store', ['as' => 'agendamentos.store', 'uses' => 'Agendamento\AgendamentosController@store']);    
     Route::get('agendamentos/destroy/{id}', ['as' => 'agendamentos.destroy', 'uses' => 'Agendamento\AgendamentosController@destroy']);
-    Route::get('agendamentos/check/{data}/{turno}/{agenda}', ['as' => 'agendamentos.check', 'uses' => 'Agendamento\AgendamentosController@getAgendamentos']);
+    Route::get('agendamentos/check/{data}/{turno}/{agenda}', ['as' => 'agendamentos.check', 'uses' => 'Agendamento\AgendamentosController@getAgendamentos']);   
 
 });
 
