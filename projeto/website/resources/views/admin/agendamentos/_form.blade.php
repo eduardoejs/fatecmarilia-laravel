@@ -2,7 +2,7 @@
     {!! Form::label('agendas', 'Agendamento para :') !!}
     <select name="agenda_id" class="form-control" id="agenda">
         @foreach($agendas as $agenda)
-            <option value="{{$agenda->id}}" @if($agenda->id == old('agenda_id')) selected="true" @endif >{{$agenda->name}}</option>                
+            <option value="{{$agenda->id}}" data-antecedencia="{{$agenda->diasAntecedencia}}" @if($agenda->id == old('agenda_id')) selected="true" @endif >{{$agenda->name}}</option>                
         @endforeach
     </select>
 </div>

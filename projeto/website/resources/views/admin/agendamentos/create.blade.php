@@ -34,33 +34,41 @@
 
     <script type="text/javascript">
 	    $(document).ready(function() {  
+
+			window.onload = function(){ makeDatepicker(); $('#datepicker').change(); }
+
+	    	function getAntecedencia(){
+	    		return $("#agenda option:selected").data('antecedencia');
+	    	}
+
+	    	function getMinDate(){
+	    		var minDate = new Date();
+				minDate.setDate(minDate.getDate() + getAntecedencia());	
+				return minDate;			
+	    	}
+
+	    	function makeDatepicker(){	    			    		
+				$('#datepicker').val('');//limpo o input para receber a nova data
+		        $('#datepicker').daterangepicker({
+				    "singleDatePicker": true,
+				    "locale": {
+				        "format": "DD/MM/YYYY", "separator": " - ","applyLabel": "Apply","cancelLabel": "Cancel",
+				        "fromLabel": "From","toLabel": "To","customRangeLabel": "Custom","weekLabel": "W",
+				        "daysOfWeek": [
+				            "Dom","Seg","Ter","Qua","Qui","Sex","Sab"
+				        ],
+				        "monthNames": [
+				            "Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"
+				        ],
+				        "firstDay": 1
+				    },    
+				    "minDate": getMinDate()
+				}, function(start, end, label) {
+				  console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+				});				
+	    	}
 		    
-		    /*Datepicker*/
-	    	var minDate = new Date();		
-			minDate.setDate(minDate.getDate() + 1);
-
-	        $('#datepicker').daterangepicker({
-			    "singleDatePicker": true,
-			    "locale": {
-			        "format": "DD/MM/YYYY", "separator": " - ","applyLabel": "Apply","cancelLabel": "Cancel",
-			        "fromLabel": "From","toLabel": "To","customRangeLabel": "Custom","weekLabel": "W",
-			        "daysOfWeek": [
-			            "Dom","Seg","Ter","Qua","Qui","Sex","Sab"
-			        ],
-			        "monthNames": [
-			            "Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"
-			        ],
-			        "firstDay": 1
-			    },    
-			    "minDate": minDate
-			}, function(start, end, label) {
-			  console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
-			});
-			/*end datepicker*/
-
-			window.onload = function(){ $('#datepicker').change(); }
-
-			$('#agenda').change(function() { $('#datepicker').change();	});
+			$('#agenda').change(function() { makeDatepicker(); $('#datepicker').change();	});
 			$('#periodo').change(function() { $('#datepicker').change(); });
 		    $('#datepicker').change(function() {		    	
     			$.blockUI({ message: '<h1">Verificando agendamento...</h1>' });/*block UI*/

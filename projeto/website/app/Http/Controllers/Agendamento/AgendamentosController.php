@@ -23,7 +23,7 @@ class AgendamentosController extends Controller
     {
     	$this->authorize('add_agendamento');
 
-    	$agendas = Agenda::all();
+    	$agendas = Agenda::all();        
     	$disponibilidades = [];
     	return view('admin.agendamentos.create', compact('agendas', 'disponibilidades'));
     }
