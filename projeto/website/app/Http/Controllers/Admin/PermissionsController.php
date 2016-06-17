@@ -9,13 +9,15 @@ use App\Models\ControleAcesso\Permission;
 
 class PermissionsController extends Controller
 {
+    private $limitPagination = 20;
+
     public function __construct()
     {
         $this->authorize('permission_admin');
     }
     public function index()
     {
-        $permissions = Permission::all();
+        $permissions = Permission::paginate($this->limitPagination);
         return view('admin.permissions.index', compact('permissions'));
     }
 
@@ -53,7 +55,7 @@ class PermissionsController extends Controller
     { 
         $search = $request->input('search');  
         if(!empty($request->input('search'))){
-            $permissions = Permission::where('name', 'like', '%'.$request->input('search').'%')->orWhere('description','like', '%'.$request->input('search').'%')->get();
+            $permissions = Permission::where('name', 'like', '%'.$request->input('search').'%')->orWhere('description','like', '%'.$request->input('search').'%')->paginate($this->limitPagination);
             return view('admin.permissions.index', compact('permissions', 'search'));
         }        
         return redirect()->route('admin.permissions.index');

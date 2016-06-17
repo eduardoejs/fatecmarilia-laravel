@@ -15,7 +15,7 @@ class UsersController extends Controller
     public function index()
     {
         $this->authorize('list_user');
-        $users = User::orderBy('active', 'desc')->get();
+        $users = User::orderBy('active', 'desc')->orderBy('name', 'asc')->get();
         return view('admin.users.index', compact('users'));
     }
     
@@ -108,6 +108,12 @@ class UsersController extends Controller
         $user = User::find($id);
         $role = Role::findOrFail($request->all()['role_id']);
         $user->addRole($role);
+
+        //se Docente chama o evento para cadastrar na tabela de docente
+        if($role->name == 'Docente'){            
+            \Event::fire(new \App\Events\AddRoleDocenteToUser($user));     
+        }
+        
         return redirect()->back();
     }
     

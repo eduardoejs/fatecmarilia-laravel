@@ -17,6 +17,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\UsuarioCriado' => [
             'App\Listeners\EnviarSenhaParaUsuario',
         ],
+        'App\Events\AddRoleDocenteToUser' => [
+            'App\Listeners\CadastrarUsuarioDocente',
+        ],
         
         /*'Illuminate\Auth\Events\Attempting' => [
             'App\Listeners\LogAuthenticationAttempt',

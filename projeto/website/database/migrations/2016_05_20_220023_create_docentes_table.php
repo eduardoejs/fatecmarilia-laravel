@@ -15,9 +15,9 @@ class CreateDocentesTable extends Migration
         Schema::create('docentes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
-            $table->string('titulacao', 45);
-            $table->char('sexo', 1);
-            $table->string('urlLattes');
+            $table->string('titulacao', 45)->nullable();
+            $table->char('sexo', 1)->nullable();
+            $table->string('urlLattes')->nullable();
             $table->string('email');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');

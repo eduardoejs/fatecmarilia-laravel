@@ -39,10 +39,10 @@
                 <td>{{$agenda->diasAntecedencia}}</td>
                 <td> 
                 @can('edit_agenda')                   
-                    <a href="{{route('admin.agendas.edit',['id'=>$agenda->id])}}" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar</a>                    
+                    <a href="{{route('admin.agendas.edit',['id'=>$agenda->id])}}" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-edit" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Alterar"></span></a>                    
                 @endcan
                 @can('destroy_agenda')
-                    <a href="{{route('admin.agendas.destroy',['id'=>$agenda->id])}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Remover</a>
+                    <a href="{{route('admin.agendas.destroy',['id'=>$agenda->id])}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Remover"></span></a>
                 @endcan
                 </td>
             </tr>

@@ -39,26 +39,26 @@
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
                 @if ($user->active)
-                    <td><span class="label label-success">Ativo</span></td>
+                    <td><span class="label label-success">Liberado</span></td>
                     @else
-                    <td><span class="label label-danger">Inativo</span></td>
+                    <td><span class="label label-danger">Bloqueado</span></td>
                 @endif
                 <td>
                     @can('view_user_roles')
                     <a href="{{route('admin.users.roles',['id'=>$user->id])}}" class="btn btn-default btn-xs">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Perfil
+                        <span class="glyphicon glyphicon-user" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Perfil do usuário"></span> 
                     </a>
                     @endcan
 
                     @can('edit_user')
                     <a href="{{route('admin.users.edit',['id'=>$user->id])}}" class="btn btn-warning btn-xs">
-                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Alterar usuário"></span> 
                     </a>
                     @endcan                                        
 
                     @can('destroy_user')
                     <a href="{{route('admin.users.destroy',['id'=>$user->id])}}" class="btn @if($user->active)btn-danger @else btn-success @endif btn-xs">
-                        <span class="glyphicon @if($user->active)glyphicon-ban-circle @else glyphicon-check @endif" aria-hidden="true"></span> @if($user->active)Bloquear @else Liberar @endif
+                        <span class="@if($user->active)glyphicon glyphicon-ban-circle  @else glyphicon glyphicon-check @endif" @if($user->active) data-toggle="tooltip" data-placement="top" title="Bloquear usuário" @else data-toggle="tooltip" data-placement="top" title="Liberar usuário" @endif aria-hidden="true"></span>
                     </a>
                     @endcan
                 </td>

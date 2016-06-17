@@ -38,9 +38,9 @@
                 <td>{{$role->name}}</td>
                 <td>{{$role->description}}</td>
                 <td>                    
-                    <a href="{{route('admin.roles.edit',['id'=>$role->id])}}" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar</a>
-                    <a href="{{route('admin.roles.permissions',['id'=>$role->id])}}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> Permissoes</a>
-                    <a href="{{route('admin.roles.destroy',['id'=>$role->id])}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Remover</a>
+                    <a href="{{route('admin.roles.edit',['id'=>$role->id])}}" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-edit" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Alterar"></span></a>
+                    <a href="{{route('admin.roles.permissions',['id'=>$role->id])}}" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-tags" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Permissões do perfil"></span></a>
+                    <a href="{{route('admin.roles.destroy',['id'=>$role->id])}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Remover"></span></a>
                 </td>
             </tr>
             @empty

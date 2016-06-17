@@ -57,7 +57,7 @@
                 <td>
                 {{-- 'manage vem da policy de agendamento' --}}
                 @can('manage', $agendamento)
-                    <a href="{{route('admin.agendamentos.destroy',['id'=>$agendamento->id])}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> </a>
+                    <a href="{{route('admin.agendamentos.destroy',['id'=>$agendamento->id])}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Remover"></span> </a>
                 @endcan
                 </td>
             </tr>

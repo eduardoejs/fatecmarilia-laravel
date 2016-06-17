@@ -4,7 +4,7 @@
 @section('x-title')Gerenciar perfil do usuário: {{$user->name}} @endsection
 
 @section('conteudo')
-    @can('user_add_role')
+    @can('add_user_role')
         {!! Form::open(['route'=>['admin.users.roles.store', $user->id]]) !!}
         <select name="role_id" class="form-control">
             @foreach($roles as $role)
