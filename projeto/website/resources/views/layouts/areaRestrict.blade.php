@@ -92,16 +92,20 @@
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-building-o"></i> Estágios <span class="fa fa-chevron-down"></span></a>
-                                  <ul class="nav child_menu">
-                                      <li><a href="#">Empresas</a></li>
-                                      <li><a href="#">Vagas de estágios</a></li>
-                                  </ul>
-                                </li>
-                                <li><a><i class="fa fa-building-o"></i> Estágio Supervisionado<span class="fa fa-chevron-down"></span></a>
-                                  <ul class="nav child_menu">
-                                      <li><a href="#">Documentos obrigatórios</a></li>
-                                  </ul>
-                                </li>
+                                    <ul class="nav child_menu"> 
+                                        <li><a>Não Supervisionado<span class="fa fa-chevron-down"></span></a>
+                                          <ul class="nav child_menu">
+                                              <li class="sub_menu"><a href="#">Empresas</a></li>
+                                              <li><a href="#">Vagas Estágios</a></li>
+                                          </ul>
+                                        </li>
+                                        <li><a>Supervisionado<span class="fa fa-chevron-down"></span></a>
+                                          <ul class="nav child_menu">
+                                              <li class="sub_menu"><a href="#">Documentos Obrigatórios</a></li>                                              
+                                          </ul>
+                                        </li>
+                                    </ul>
+                                </li>                                
                                 <li><a><i class="fa fa-university"></i> Acadêmico <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">                        
                                         <li><a href="#level1_2">Cursos</a></li>
