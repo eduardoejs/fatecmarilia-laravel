@@ -74,5 +74,13 @@ Route::group(['prefix' => 'dashboard', 'as' => 'admin.', 'middleware' => 'web'],
     Route::get('agendamentos/destroy/{id}', ['as' => 'agendamentos.destroy', 'uses' => 'Agendamento\AgendamentosController@destroy']);
     Route::get('agendamentos/check/{data}/{turno}/{agenda}', ['as' => 'agendamentos.check', 'uses' => 'Agendamento\AgendamentosController@getAgendamentos']);   
 
+    Route::get('cursos/classificacao', ['as' => 'tipos.cursos.index', 'uses' => 'Academico\TiposCursosController@index']);
+    Route::get('cursos/classificacao/new', ['as' => 'tipos.cursos.create', 'uses' => 'Academico\TiposCursosController@create']);
+    Route::post('cursos/classificacao/search', ['as' => 'tipos.cursos.search', 'uses' => 'Academico\TiposCursosController@search']);
+    Route::post('cursos/classificacao/store', ['as' => 'tipos.cursos.store', 'uses' => 'Academico\TiposCursosController@store']);    
+    Route::get('cursos/classificacao/edit/{id}', ['as' => 'tipos.cursos.edit', 'uses' => 'Academico\TiposCursosController@edit']);
+    Route::put('cursos/classificacao/update/{id}', ['as' => 'tipos.cursos.update', 'uses' => 'Academico\TiposCursosController@update']);
+    Route::get('cursos/classificacao/destroy/{id}', ['as' => 'tipos.cursos.destroy', 'uses' => 'Academico\TiposCursosController@destroy']);    
+
 });
 

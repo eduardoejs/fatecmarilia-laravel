@@ -107,14 +107,24 @@
                                     </ul>
                                 </li>                                
                                 <li><a><i class="fa fa-university"></i> Acadêmico <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">                        
-                                        <li><a href="#level1_2">Cursos</a></li>
-                                        <li><a href="#level1_2">Disciplinas</a></li>
+                                    <ul class="nav child_menu">
+                                        <li><a>Cursos<span class="fa fa-chevron-down"></span></a>
+                                          <ul class="nav child_menu">
+                                              <li class="sub_menu"><a href="{{route('admin.tipos.cursos.index')}}">Classificação</a></li>
+                                              <li><a href="#">Cadastro Cursos</a></li>
+                                          </ul>
+                                        </li>
+                                        <li><a>Disciplinas<span class="fa fa-chevron-down"></span></a>
+                                          <ul class="nav child_menu">
+                                              <li class="sub_menu"><a href="level2.html">Grade</a></li>
+                                              <li><a href="#">Cadastro Disciplinas</a></li>
+                                          </ul>
+                                        </li>
                                         <li><a>Docentes<span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu">
-                                            <li class="sub_menu"><a href="level2.html">Dados do docente</a></li>
-                                            <li><a href="#level2_1">Disciplinas vinculadas</a></li>
-                                        </ul>
+                                          <ul class="nav child_menu">
+                                              <li class="sub_menu"><a href="level2.html">Dados do docente</a></li>
+                                              <li><a href="#level2_1">Disciplinas vinculadas</a></li>
+                                          </ul>
                                         </li>
                                     </ul>
                                 </li>

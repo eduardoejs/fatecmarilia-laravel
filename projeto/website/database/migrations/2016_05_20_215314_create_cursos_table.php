@@ -17,8 +17,8 @@ class CreateCursosTable extends Migration
             $table->string('nome');
             $table->integer('cargaHoraria')->nullable();
             $table->integer('tempoDuracao')->nullable();
-            $table->integer('tipo_id')->unsigned();
-            $table->foreign('tipo_id')->references('id')->on('tipo_cursos');
+            $table->integer('tipo_curso_id')->unsigned();
+            $table->foreign('tipo_curso_id')->references('id')->on('tipo_cursos');
             $table->timestamps();
         });
     }
