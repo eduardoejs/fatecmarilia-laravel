@@ -97,5 +97,13 @@ Route::group(['prefix' => 'dashboard', 'as' => 'admin.', 'middleware' => 'web'],
     Route::put('modalidades/cursos/update/{id}', ['as' => 'modalidades.cursos.update', 'uses' => 'Academico\ModalidadesController@update']);
     Route::get('modalidades/cursos/destroy/{id}', ['as' => 'modalidades.cursos.destroy', 'uses' => 'Academico\ModalidadesController@destroy']);    
 
+    Route::get('grade/', ['as' => 'grade.index', 'uses' => 'Academico\GradeDisciplinasController@index']);
+    Route::get('grade/new', ['as' => 'grade.create', 'uses' => 'Academico\GradeDisciplinasController@create']);    
+    Route::post('grade/store', ['as' => 'grade.store', 'uses' => 'Academico\GradeDisciplinasController@store']);    
+    Route::get('grade/edit/{id}', ['as' => 'grade.edit', 'uses' => 'Academico\GradeDisciplinasController@edit']);
+    Route::put('grade/update/{id}', ['as' => 'grade.update', 'uses' => 'Academico\GradeDisciplinasController@update']);
+    Route::get('grade/destroy/{id}', ['as' => 'grade.destroy', 'uses' => 'Academico\GradeDisciplinasController@destroy']);
+
 });
+
 

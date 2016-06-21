@@ -17,5 +17,10 @@ class Curso extends Model
     {
     	return $this->belongsTo(\App\Models\Academico\Modalidade::class);
     }
+
+    public function disciplinas()
+    {
+    	return $this->hasMany(\App\Models\Academico\Disciplina::class);
+    }
        
 }
