@@ -16,12 +16,6 @@ class CreateGradeDisciplinasTable extends Migration
             $table->increments('id');
             $table->string('codigoDoSiga', 45);
             $table->string('descricao', 150);
-
-            //foreig key
-            $table->integer('curso_id')->unsigned();
-            $table->foreign('curso_id')->references('id')->on('cursos');
-            $table->integer('grade_id')->unsigned();
-            $table->foreign('grade_id')->references('id')->on('grade_disciplinas');
             $table->timestamps();
         });
     }

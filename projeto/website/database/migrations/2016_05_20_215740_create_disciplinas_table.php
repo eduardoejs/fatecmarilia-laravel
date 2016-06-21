@@ -17,7 +17,13 @@ class CreateDisciplinasTable extends Migration
             $table->string('nome');
             $table->integer('cargaHoraria');
             $table->integer('semestre');
-            $table->string('codigoDoSiga',10);            
+            $table->string('codigoDoSiga',10);
+
+            //foreig key
+            $table->integer('curso_id')->unsigned();
+            $table->foreign('curso_id')->references('id')->on('cursos');
+            $table->integer('grade_disciplina_id')->unsigned();
+            $table->foreign('grade_disciplina_id')->references('id')->on('grade_disciplinas');            
             $table->timestamps();
         });
     }
