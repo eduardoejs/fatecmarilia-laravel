@@ -35,9 +35,7 @@ class DocentesController extends Controller
         $docente = Docente::find($id);
         $docente->update($request->all());
 
-        $user = User::find($docente->user_id);
-        $user->name = $docente->nome;
-        $user->update();
+        $docente->user->update(['name' => $docente->nome]);        
 
         return redirect()->route('admin.docentes.index');
     }

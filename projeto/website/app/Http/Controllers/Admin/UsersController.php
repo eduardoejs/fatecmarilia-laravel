@@ -78,8 +78,11 @@ class UsersController extends Controller
         $this->authorize('edit_user');
         $input = $this->prepareFields($request);
         User::find($id)->update($input);
-
-        Docente::where('user_id', $id)->update(['nome' => $request->input('name')]);
+        
+        $user = User::find($id);        
+        if(count($user->docentes) > 0)
+            $user->docentes[0]->update(['nome' => $request->input('name')]);
+        
         return redirect()->route('admin.users.index');
     }
     
