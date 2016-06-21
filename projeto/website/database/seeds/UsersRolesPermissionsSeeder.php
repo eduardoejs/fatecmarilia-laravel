@@ -411,7 +411,7 @@ class UsersRolesPermissionsSeeder extends Seeder
         $permissionDestroyModalidade = factory(\App\Models\ControleAcesso\Permission::class)->create([
             'name'=>'destroy_modalidade',
             'description' => 'Permite remover uma modalidade'
-        ]);
+        ]);        
         
         /**
          * Adicionar as permissoes aos perfis de usuarios

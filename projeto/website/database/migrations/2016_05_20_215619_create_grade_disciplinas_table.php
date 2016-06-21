@@ -14,7 +14,7 @@ class CreateGradeDisciplinasTable extends Migration
     {
         Schema::create('grade_disciplinas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('codigoDoSiga', 45);
+            $table->string('codigoDoSiga', 45)->unique();
             $table->string('descricao', 150);
             $table->timestamps();
         });

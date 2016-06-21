@@ -118,7 +118,7 @@
                                         </li>
                                         <li><a>Disciplinas<span class="fa fa-chevron-down"></span></a>
                                           <ul class="nav child_menu">
-                                              <li class="sub_menu"><a href="#">Grade</a></li>
+                                              <li class="sub_menu"><a href="{{route('admin.grade.index')}}">Grade</a></li>
                                               <li><a href="#">Cadastro Disciplinas</a></li>
                                           </ul>
                                         </li>

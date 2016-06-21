@@ -103,7 +103,6 @@ Route::group(['prefix' => 'dashboard', 'as' => 'admin.', 'middleware' => 'web'],
     Route::get('grade/edit/{id}', ['as' => 'grade.edit', 'uses' => 'Academico\GradeDisciplinasController@edit']);
     Route::put('grade/update/{id}', ['as' => 'grade.update', 'uses' => 'Academico\GradeDisciplinasController@update']);
     Route::get('grade/destroy/{id}', ['as' => 'grade.destroy', 'uses' => 'Academico\GradeDisciplinasController@destroy']);
-
 });
 
 
