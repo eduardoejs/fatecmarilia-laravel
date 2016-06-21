@@ -103,6 +103,14 @@ Route::group(['prefix' => 'dashboard', 'as' => 'admin.', 'middleware' => 'web'],
     Route::get('grade/edit/{id}', ['as' => 'grade.edit', 'uses' => 'Academico\GradeDisciplinasController@edit']);
     Route::put('grade/update/{id}', ['as' => 'grade.update', 'uses' => 'Academico\GradeDisciplinasController@update']);
     Route::get('grade/destroy/{id}', ['as' => 'grade.destroy', 'uses' => 'Academico\GradeDisciplinasController@destroy']);
+
+    Route::get('disciplina/', ['as' => 'disciplinas.index', 'uses' => 'Academico\DisciplinasController@index']);
+    Route::get('disciplina/new', ['as' => 'disciplinas.create', 'uses' => 'Academico\DisciplinasController@create']);    
+    Route::post('disciplina/store', ['as' => 'disciplinas.store', 'uses' => 'Academico\DisciplinasController@store']);    
+    Route::get('disciplina/edit/{id}', ['as' => 'disciplinas.edit', 'uses' => 'Academico\DisciplinasController@edit']);
+    Route::put('disciplina/update/{id}', ['as' => 'disciplinas.update', 'uses' => 'Academico\DisciplinasController@update']);
+    Route::get('disciplina/destroy/{id}', ['as' => 'disciplinas.destroy', 'uses' => 'Academico\DisciplinasController@destroy']);
+    Route::post('disciplina/search', ['as' => 'disciplinas.search', 'uses' => 'Academico\DisciplinasController@search']);
 });
 
 

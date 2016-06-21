@@ -31,8 +31,7 @@ class GradeDisciplinasController extends Controller
         try{
             GradeDisciplina::create($request->all());
             return redirect()->route('admin.grade.index')->with('status', 'Cadastro realizado com sucesso!');      
-        }catch(\Exception $e){
-            
+        }catch(\Exception $e){            
             return redirect()->route('admin.grade.index')->with('status-Erro', $e->getMessage());
         }        
     }

@@ -1,6 +1,6 @@
 @extends('layouts.areaRestrict')
 
-@section('page-title', 'Disciplinas') 
+@section('page-title', 'Gerenciamento de Disciplinas') 
 @section('x-title', 'Disciplinas cadastradas') 
 
 @section('top-search')
@@ -23,8 +23,22 @@
 @section('conteudo')
 
     @can('add_disciplina')
-        <a href="{{route('admin.disciplinas.create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nova Agenda</a>
+        <a href="{{route('admin.disciplinas.create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Disciplina</a>
     @endcan
+    @if (session('status'))
+        <div class="alert alert-success alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                    </button>
+            {{ session('status') }}
+        </div>
+    @endif 
+     @if (session('status-Erro'))
+        <div class="alert alert-danger alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                    </button>
+            {{ session('status-Erro') }}
+        </div>
+    @endif 
     <br><br>
     <table class="table table-hover">
         <thead>
@@ -32,6 +46,8 @@
         <th>Nome</th>
         <th>Carga Horária</th>
         <th>Semestre</th>        
+        <th>Curso</th>
+        <th>Grade</th>
         <th>Ações</th>
         </thead>
         <tbody>
@@ -41,6 +57,8 @@
                 <td>{{$disciplina->nome}}</td>
                 <td>{{$disciplina->cargaHoraria}}</td>
                 <td>{{$disciplina->semestre}}</td>
+                <td>{{$disciplina->curso->nome}}</td>
+                <td>{{$disciplina->grade_disciplina->codigoDoSiga}}</td>
                 <td> 
                 @can('edit_disciplina')                   
                     <a href="{{route('admin.disciplinas.edit',['id'=>$disciplina->id])}}" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-edit" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Alterar"></span></a>                    
@@ -55,4 +73,5 @@
         @endforelse
         </tbody>
     </table>
+    {{$disciplinas->render()}}
 @endsection
