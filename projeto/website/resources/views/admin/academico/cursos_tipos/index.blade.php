@@ -25,6 +25,13 @@
     @can('add_tipo_curso')
         <a href="{{route('admin.tipos.cursos.create')}}" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nova classificação</a>
     @endcan
+    @if (session('status'))
+        <div class="alert alert-success alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                    </button>
+            {{ session('status') }}
+        </div>
+    @endif 
     <br><br>
     <table class="table table-hover">
         <thead>

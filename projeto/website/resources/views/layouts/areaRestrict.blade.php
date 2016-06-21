@@ -105,13 +105,15 @@
                                           </ul>
                                         </li>
                                     </ul>
-                                </li>                                
+                                </li>
+                                 @if(Gate::allows('role_admin'))
                                 <li><a><i class="fa fa-university"></i> Acadêmico <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
+                                      @can('role_admin')
                                         <li><a>Cursos<span class="fa fa-chevron-down"></span></a>
                                           <ul class="nav child_menu">
                                               <li class="sub_menu"><a href="{{route('admin.tipos.cursos.index')}}">Classificação</a></li>
-                                              <li><a href="#">Cadastro Cursos</a></li>
+                                              <li><a href="{{route('admin.cursos.index')}}">Gerenciar Cursos</a></li>
                                           </ul>
                                         </li>
                                         <li><a>Disciplinas<span class="fa fa-chevron-down"></span></a>
@@ -126,8 +128,10 @@
                                               <li><a href="#level2_1">Disciplinas vinculadas</a></li>
                                           </ul>
                                         </li>
+                                        @endcan
                                     </ul>
                                 </li>
+                                @endif
                                 <li><a><i class="fa fa-archive"></i> Material de Aula <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="#">Gerenciar arquivos</a></li>

@@ -391,6 +391,27 @@ class UsersRolesPermissionsSeeder extends Seeder
             'name'=>'view_categoria_download',
             'description' => 'Permite visualizar a categoria do arquivo para Download'
         ]);
+
+        /* Permissoes para modalidades de cursos */
+        $permissionListModalidade = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'list_modalidade',
+            'description' => 'Permite listar todas as modalidades de cursos'
+        ]);
+
+        $permissionAddModalidade = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'add_modalidade',
+            'description' => 'Permite adicionar uma modalidade de curso'
+        ]);
+
+        $permissionEditModalidade = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'edit_modalidade',
+            'description' => 'Permite alterar uma modalidade'
+        ]);
+
+        $permissionDestroyModalidade = factory(\App\Models\ControleAcesso\Permission::class)->create([
+            'name'=>'destroy_modalidade',
+            'description' => 'Permite remover uma modalidade'
+        ]);
         
         /**
          * Adicionar as permissoes aos perfis de usuarios

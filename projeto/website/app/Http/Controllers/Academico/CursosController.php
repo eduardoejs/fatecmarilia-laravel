@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Academico\Curso;
+use App\Models\Academico\TipoCurso;
+use App\Models\Academico\Modalidade;
 
 class CursosController extends Controller
 {
@@ -13,43 +15,48 @@ class CursosController extends Controller
     {
     	$this->authorize('list_curso');
 
-    	$cursos = Curso::all();
-		return view('admin.academico.cursos.index', compact('tipos'));
+    	$cursos = Curso::all();        
+		return view('admin.academico.cursos.index', compact('cursos'));
     }
 
     public function create()
     {
     	$this->authorize('add_curso');
 
-    	$tipos = TipoCurso::all(); 
-    	return view('admin.academico.cursos.create', compact('tipos'));
+    	$cursos = Curso::all(); 
+        $tipos = TipoCurso::all();
+        $modalidades = Modalidade::all();
+    	return view('admin.academico.cursos.create', compact('cursos', 'tipos', 'modalidades'));
     }
 
     public function store(Request $request)
     {
     	$this->authorize('add_curso');
-        TipoCurso::create($request->all());    	
+        Curso::create($request->all());    	
 		return redirect()->route('admin.cursos.index')->with('status', 'Cadastro realizado com sucesso!');    	
     }
 
     public function edit($id)
     {
         $this->authorize('edit_curso');
-        $tipo = TipoCurso::find($id);
-        return view('admin.academico.cursos.edit', compact('tipo'));
+        $curso = Curso::find($id);
+        $tipos = TipoCurso::all();
+        $modalidades = Modalidade::all();
+        return view('admin.academico.cursos.edit', compact('curso', 'tipos', 'modalidades'));
     }
 
     public function update(Request $request, $id)
     {
         $this->authorize('edit_curso');
-        TipoCurso::find($id)->update($request->all());
+        
+        Curso::find($id)->update($request->all());
         return redirect()->route('admin.cursos.index');
     }
 
     public function destroy($id)
     {
         $this->authorize('destroy_curso');
-        TipoCurso::find($id)->delete();        
+        Curso::find($id)->delete();        
         return redirect()->route('admin.cursos.index');
     }
 
@@ -59,7 +66,7 @@ class CursosController extends Controller
         
         $search = $request->input('search');
         if(!empty($request->input('search'))){
-            $tipos = TipoCurso::orWhere('descricao','like', '%'.$request->input('search').'%')->get();
+            $tipos = Curso::orWhere('descricao','like', '%'.$request->input('search').'%')->get();
             return view('admin.academico.cursos.index', compact('tipos', 'search'));
         }
         

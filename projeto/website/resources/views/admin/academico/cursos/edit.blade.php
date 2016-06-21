@@ -1,12 +1,12 @@
 @extends('layouts.areaRestrict')
 
 @section('page-title', 'Classificação dos Cursos') 
-@section('x-title') Alterar classificação: {{$tipo->descricao}} @endsection
+@section('x-title') Alterar classificação: {{$curso->descricao}} @endsection
 
 @section('conteudo')
-    {!! Form::model($tipo, ['route'=>['admin.tipos.cursos.update', $tipo->id], 'method' => 'put']) !!}                            
-        @include('admin.academico.cursos_tipos._form')
+    {!! Form::model($curso, ['route'=>['admin.cursos.update', $curso->id], 'method' => 'put']) !!}                            
+        @include('admin.academico.cursos._form')
         {!! Form::submit('Gravar', ['class'=>'btn btn-primary']) !!}
-        <a href="{{route('admin.tipos.cursos.index')}}" class='btn btn-default'>Voltar</a>
+        <a href="{{route('admin.cursos.index')}}" class='btn btn-default'>Voltar</a>
     {!! Form::close() !!} 
 @endsection

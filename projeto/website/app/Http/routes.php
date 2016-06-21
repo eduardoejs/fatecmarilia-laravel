@@ -82,5 +82,20 @@ Route::group(['prefix' => 'dashboard', 'as' => 'admin.', 'middleware' => 'web'],
     Route::put('cursos/classificacao/update/{id}', ['as' => 'tipos.cursos.update', 'uses' => 'Academico\TiposCursosController@update']);
     Route::get('cursos/classificacao/destroy/{id}', ['as' => 'tipos.cursos.destroy', 'uses' => 'Academico\TiposCursosController@destroy']);    
 
+    Route::get('cursos', ['as' => 'cursos.index', 'uses' => 'Academico\CursosController@index']);
+    Route::get('cursos/new', ['as' => 'cursos.create', 'uses' => 'Academico\CursosController@create']);
+    Route::post('cursos/search', ['as' => 'cursos.search', 'uses' => 'Academico\CursosController@search']);
+    Route::post('cursos/store', ['as' => 'cursos.store', 'uses' => 'Academico\CursosController@store']);    
+    Route::get('cursos/edit/{id}', ['as' => 'cursos.edit', 'uses' => 'Academico\CursosController@edit']);
+    Route::put('cursos/update/{id}', ['as' => 'cursos.update', 'uses' => 'Academico\CursosController@update']);
+    Route::get('cursos/destroy/{id}', ['as' => 'cursos.destroy', 'uses' => 'Academico\CursosController@destroy']);    
+
+    Route::get('modalidades/cursos', ['as' => 'modalidades.cursos.index', 'uses' => 'Academico\ModalidadesController@index']);
+    Route::get('modalidades/cursos/new', ['as' => 'modalidades.cursos.create', 'uses' => 'Academico\ModalidadesController@create']);    
+    Route::post('modalidades/cursos/store', ['as' => 'modalidades.cursos.store', 'uses' => 'Academico\ModalidadesController@store']);    
+    Route::get('modalidades/cursos/edit/{id}', ['as' => 'modalidades.cursos.edit', 'uses' => 'Academico\ModalidadesController@edit']);
+    Route::put('modalidades/cursos/update/{id}', ['as' => 'modalidades.cursos.update', 'uses' => 'Academico\ModalidadesController@update']);
+    Route::get('modalidades/cursos/destroy/{id}', ['as' => 'modalidades.cursos.destroy', 'uses' => 'Academico\ModalidadesController@destroy']);    
+
 });
 
