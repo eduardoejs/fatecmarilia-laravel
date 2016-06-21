@@ -111,6 +111,14 @@ Route::group(['prefix' => 'dashboard', 'as' => 'admin.', 'middleware' => 'web'],
     Route::put('disciplina/update/{id}', ['as' => 'disciplinas.update', 'uses' => 'Academico\DisciplinasController@update']);
     Route::get('disciplina/destroy/{id}', ['as' => 'disciplinas.destroy', 'uses' => 'Academico\DisciplinasController@destroy']);
     Route::post('disciplina/search', ['as' => 'disciplinas.search', 'uses' => 'Academico\DisciplinasController@search']);
+
+    Route::get('docentes/', ['as' => 'docentes.index', 'uses' => 'Academico\DocentesController@index']);
+    Route::get('docentes/new', ['as' => 'docentes.create', 'uses' => 'Academico\DocentesController@create']);    
+    Route::post('docentes/store', ['as' => 'docentes.store', 'uses' => 'Academico\DocentesController@store']);    
+    Route::get('docentes/edit/{id}', ['as' => 'docentes.edit', 'uses' => 'Academico\DocentesController@edit']);
+    Route::put('docentes/update/{id}', ['as' => 'docentes.update', 'uses' => 'Academico\DocentesController@update']);
+    Route::get('docentes/destroy/{id}', ['as' => 'docentes.destroy', 'uses' => 'Academico\DocentesController@destroy']);
+    Route::post('docentes/search', ['as' => 'docentes.search', 'uses' => 'Academico\DocentesController@search']);
 });
 
 

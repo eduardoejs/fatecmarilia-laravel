@@ -1,7 +1,7 @@
 @extends('layouts.areaRestrict')
 
 @section('page-title', 'Gerenciamento de Disciplinas') 
-@section('x-title') Alterar disciplina: {{$disciplina->nnome}} @endsection
+@section('x-title') Alterar disciplina: {{$disciplina->nome}} @endsection
 
 @section('conteudo')
     {!! Form::model($disciplina, ['route'=>['admin.disciplinas.update', $disciplina->id], 'method' => 'put']) !!}                            

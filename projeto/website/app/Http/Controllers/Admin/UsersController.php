@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\Models\ControleAcesso\User;
 use App\Models\ControleAcesso\Role;
+use App\Models\Academico\Docente;
 use App\Http\Controllers\Controller;
 use Validator;
 
@@ -77,6 +78,8 @@ class UsersController extends Controller
         $this->authorize('edit_user');
         $input = $this->prepareFields($request);
         User::find($id)->update($input);
+
+        Docente::where('user_id', $id)->update(['nome' => $request->input('name')]);
         return redirect()->route('admin.users.index');
     }
     
