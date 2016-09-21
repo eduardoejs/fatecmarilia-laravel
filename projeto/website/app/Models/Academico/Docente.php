@@ -12,4 +12,9 @@ class Docente extends Model
     {
     	return $this->belongsTo(\App\Models\ControleAcesso\User::class);
     }
+
+    public function disciplinas()
+    {
+    	return $this->belongsToMany(\App\Models\Academico\Disciplina::class)->withTimestamps();
+    }
 }

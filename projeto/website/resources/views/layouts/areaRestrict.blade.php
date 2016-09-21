@@ -125,7 +125,7 @@
                                         <li><a>Docentes<span class="fa fa-chevron-down"></span></a>
                                           <ul class="nav child_menu">
                                               <li class="sub_menu"><a href="{{route('admin.docentes.index')}}">Dados do docente</a></li>
-                                              <li><a href="#level2_1">Disciplinas vinculadas</a></li>
+                                              <li><a href="{{route('admin.disciplinas.vinculadas.index')}}">Disciplinas vinculadas</a></li>
                                           </ul>
                                         </li>
                                         @endcan

@@ -13,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //defino o time zone a ser aplicado (timestamps)
+        date_default_timezone_set('America/Sao_Paulo');
     }
 
     /**

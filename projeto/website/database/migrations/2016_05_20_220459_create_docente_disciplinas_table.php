@@ -12,7 +12,7 @@ class CreateDocenteDisciplinasTable extends Migration
      */
     public function up()
     {
-        Schema::create('docente_disciplinas', function (Blueprint $table) {
+        Schema::create('disciplina_docente', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('disciplina_id')->unsigned();
             $table->foreign('disciplina_id')->references('id')->on('disciplinas');
@@ -29,6 +29,6 @@ class CreateDocenteDisciplinasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('docente_disciplinas');
+        Schema::drop('disciplina_docente');
     }
 }

@@ -17,4 +17,9 @@ class Disciplina extends Model
     {
     	return $this->belongsTo(\App\Models\Academico\GradeDisciplina::class);
     }
+
+    public function docentes()
+    {
+    	return $this->belongsToMany(\App\Models\Academico\Docente::class)->withTimestamps();
+    }
 }
