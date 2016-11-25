@@ -30,7 +30,7 @@ class EnviarSenhaParaUsuario
         
         \Mail::send('auth.emails.sendPasswordCreateUser', array('user' => $user), function($message) use ($user){
            //$message->from('');
-           $message->to($user->email, $user->name)->subject('Fatec Marília - Envio de Login');
+           $message->to($user->email, $user->name)->subject('Dados para acesso ao site');
         });
         
         $user->plainPassword = null;

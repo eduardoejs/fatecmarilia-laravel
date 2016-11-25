@@ -32,5 +32,6 @@ class PasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->subject = 'Redefinição de Senha'; //https://laracasts.com/discuss/channels/general-discussion/laravel-5-password-reset-link-subject
     }
 }

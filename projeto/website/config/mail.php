@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'web@fatecmarilia.edu.br', 'name' => 'Fatec Marília'],
+    'from' => ['address' => 'info@fatecmarilia.edu.br', 'name' => 'Fatec Marília'],
 
     /*
     |--------------------------------------------------------------------------
