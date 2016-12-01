@@ -15,12 +15,12 @@ class DisciplinaDocentesController extends Controller
 
     public function index()
     {
-    	//$this->authorize('list_disciplina');
+    	$this->authorize('list_disciplina');
         //$disciplinas = Disciplina::paginate($this->limitPagination);
         
         $docentes = Docente::all();
-
-        return view('admin.academico.disciplinasvinculadas.index', compact('docentes'));
+        $disciplinas = Disciplina::all();
+        return view('admin.academico.disciplinasvinculadas.index', compact('docentes', 'disciplinas'));
     }
 
     public function getVinculo($id)
