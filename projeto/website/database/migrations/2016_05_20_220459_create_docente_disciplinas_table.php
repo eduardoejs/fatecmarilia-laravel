@@ -12,12 +12,12 @@ class CreateDocenteDisciplinasTable extends Migration
      */
     public function up()
     {
-        Schema::create('disciplina_docente', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('disciplina_id')->unsigned();
-            $table->foreign('disciplina_id')->references('id')->on('disciplinas');
+        Schema::create('docente_disciplinas', function (Blueprint $table) {
+            $table->increments('id');            
             $table->integer('docente_id')->unsigned();
             $table->foreign('docente_id')->references('id')->on('docentes');
+            $table->integer('disciplina_id')->unsigned();
+            $table->foreign('disciplina_id')->references('id')->on('disciplinas');
             $table->timestamps();
         });
     }

@@ -121,6 +121,10 @@ Route::group(['prefix' => 'dashboard', 'as' => 'admin.', 'middleware' => 'web'],
     Route::post('docentes/search', ['as' => 'docentes.search', 'uses' => 'Academico\DocentesController@search']);
 
     Route::get('atribuicao', ['as' => 'disciplinas.vinculadas.index', 'uses' => 'Academico\DisciplinaDocentesController@index']);
+    Route::get('getdisciplinas/{idCurso}/{idGrade}', ['as' => 'disciplinas.vinculadas.cursos', 'uses' => 'Academico\DisciplinaDocentesController@getDisciplinas']); 
+    Route::get('getgrades/{idCurso}', ['as' => 'disciplinas.vinculadas.grades', 'uses' => 'Academico\DisciplinaDocentesController@getGradesDisciplinas']); 
+    Route::get('getatribuicoes/{idDocente}', ['as' => 'disciplinas.vinculadas.atribuicoes', 'uses' => 'Academico\DisciplinaDocentesController@getAtribuicoes']); 
+    Route::post('atribuicao/store', ['as' => 'disciplinas.vinculadas.store', 'uses' => 'Academico\DisciplinaDocentesController@store']);
     Route::get('atribuicao/check/{id}', ['as' => 'disciplinas.vinculadas.check', 'uses' => 'Academico\DisciplinaDocentesController@getVinculo']);
     Route::get('atribuicao/destroy/docente/{docenteId}/disciplina/{disciplinaId}', ['as' => 'disciplinas.vinculadas.destroy', 'uses' => 'Academico\DisciplinaDocentesController@destroy']);
 });
